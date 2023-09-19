@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 use Modules\Lang\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
@@ -54,7 +55,7 @@ use Modules\Geo\Models\Traits\HasPlaceTrait;
  * @method static Builder|Event whereUpdatedBy($value)
  * @method static Builder|BaseModelLang withPost(string $guid)
  *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 class Event extends BaseModelLang
 {
@@ -77,16 +78,13 @@ class Event extends BaseModelLang
     protected $appends = [/* 'formatted_address' */];
 
     /**
-     * @var string[]
-     */
-    protected $dates = ['date_start', 'date_end', 'created_at', 'updated_at'];
-
-    /**
      * @var array<string, string>
      */
     protected $casts = [
         'date_start' => 'datetime:Y-m-d\TH:i',
         'date_end' => 'datetime:Y-m-d\TH:i',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /*
