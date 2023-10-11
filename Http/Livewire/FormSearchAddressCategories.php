@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Http\Livewire;
 
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Session\SessionManager;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Xot\Services\ActionService;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Services;
 
-use Exception;
 // https://www.geodatasource.com/world-cities-database/free
 // https://mikepolatoglou.com/geospatial-mysql-laravel-53
 // https://github.com/malhal/Laravel-Geographical
@@ -29,7 +28,7 @@ class GeoService
      */
     public static function getInstance(): self
     {
-        if (!self::$_instance instanceof \Modules\Geo\Services\GeoService) {
+        if (! self::$_instance instanceof \Modules\Geo\Services\GeoService) {
             self::$_instance = new self();
         }
 
@@ -114,6 +113,7 @@ class GeoService
             $unit = 'K'; // default
         }
         $unit = strtoupper($unit);
+
         return match ($unit) {
             'K' => $miles * 1.609344,
             'N' => $miles * 0.8684,
@@ -163,13 +163,13 @@ class GeoService
 
     public static function pointInPolygon(float $lat, float $lng, ?string $polygon): bool
     {
-        if ($polygon === null || $polygon === '') {
+        if (null === $polygon || '' === $polygon) {
             return false;
         }
 
         $original_data = json_decode($polygon, true, 512, JSON_THROW_ON_ERROR);
         if (! \is_array($original_data)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         if (self::is_in_polygon($lat, $lng, $original_data)) {

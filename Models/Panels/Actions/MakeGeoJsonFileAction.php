@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Models\Panels\Actions;
 
-use Exception;
 use Illuminate\Support\Facades\Storage;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 // -------- models -----------
@@ -24,7 +23,7 @@ class MakeGeoJsonFileAction extends XotBasePanelAction
     public function handle(): GeoJsonCollection
     {
         if (! method_exists($this->rows, 'getModel')) {
-            throw new Exception('method getModel is missing ['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('method getModel is missing ['.__LINE__.']['.__FILE__.']');
         }
         $model = $this->rows->getModel();
         $rows = $model->where('latitude', '!=', null)

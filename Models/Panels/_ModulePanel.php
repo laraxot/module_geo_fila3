@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Models\Panels;
 
-use Modules\Geo\Models\Panels\Actions\TestAction;
 use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Geo\Models\Panels\Actions\TestAction;
 
 class _ModulePanel extends XotBasePanel
 {

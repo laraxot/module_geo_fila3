@@ -6,7 +6,6 @@ namespace Modules\Geo\Models\Panels\Actions;
 
 // -------- models -----------
 // -------- services --------
-use Exception;
 use Illuminate\Database\Eloquent\Model;
 // use Modules\Xot\Services\ArrayService;
 // -------- bases -----------
@@ -25,7 +24,7 @@ class GetLatitudeLongitudeAction extends XotBasePanelAction
     public function handle(): void
     {
         if (! method_exists($this->rows, 'whereRaw')) {
-            throw new Exception('in ['.$this->rows::class.'] method [whereRaw] not exists');
+            throw new \Exception('in ['.$this->rows::class.'] method [whereRaw] not exists');
         }
         // 46     Call to an undefined method object::getAttributeValue().
         // 47     Call to an undefined method object::fill().
@@ -45,10 +44,10 @@ class GetLatitudeLongitudeAction extends XotBasePanelAction
             ->get();
         foreach ($rows as $row) {
             if (! method_exists($row, 'getAddress')) {
-                throw new Exception('in ['.$row::class.'] not exists [getAddress] method');
+                throw new \Exception('in ['.$row::class.'] not exists [getAddress] method');
             }
             if (! \is_object($row)) {
-                throw new Exception('row is not an object');
+                throw new \Exception('row is not an object');
             }
             //
             //  40     Call to an undefined method object::getAttributeValue().
@@ -61,7 +60,7 @@ class GetLatitudeLongitudeAction extends XotBasePanelAction
                 $addr_arr = ImportService::make()->getAddressFields(['address' => $address, 'id' => $row->getAttributeValue('id')]);
                 $row->fill($addr_arr);
                 $row->save();
-            } catch (Exception) {
+            } catch (\Exception) {
             }
         }
         /*

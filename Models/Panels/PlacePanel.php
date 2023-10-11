@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Geo\Models\Panels;
 
 // -------- Services -----
-use Modules\Geo\Models\Place;
 use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Geo\Models\Place;
 
 // ---- bases --
 
