@@ -11,7 +11,7 @@
         <tr>
           <td>
             <!--presa dei dati senza scambio con la pagina -->
-            <label
+            <x-filament-forms::field-wrapper.label
               ><strong
                 >Dati passati da vue al campo, SENZA INVIO di dati</strong
               ></label
@@ -24,7 +24,7 @@
         <tr>
           <td>
             <!-- sincronizzazione diretta di dati tra parti della pagina con v-model -->
-            <label
+            <x-filament-forms::field-wrapper.label
               ><strong
                 >Sincronizzazione bi-direzionale dei dati CON v-model.</strong
               ></label
@@ -36,7 +36,7 @@
         </tr>
         <tr>
           <td>
-            <label
+            <x-filament-forms::field-wrapper.label
               ><strong
                 >Sincronizzazione di dati con INVIO SENZA v-model e CON
                 metodo</strong
@@ -50,7 +50,7 @@
         </tr>
         <tr>
           <td>
-            <label
+            <x-filament-forms::field-wrapper.label
               ><strong
                 >Sincronizzazione bi-direzionale CON TASTO INVIO dei dati usando
                 v-model e metodo ASSIEME</strong
