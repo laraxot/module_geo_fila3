@@ -2,7 +2,7 @@
 
 /**
  * https://forum.laravel-livewire.com/t/wire-ignore-with-google-autocomplete/734/3.
- * $this->dispatchBrowserEvent('address:list:refresh');.
+ * $this->dispatch('address:list:refresh');.
  */
 
 declare(strict_types=1);
@@ -93,7 +93,7 @@ class FormSearchAddressCategories extends Component
         $this->enabledTypes = collect([]);
 
         if ($this->enabledTypes->isEmpty()) {
-            $this->dispatchBrowserEvent('openModalNotServed');
+            $this->dispatch('openModalNotServed');
 
             return;
         }
@@ -165,8 +165,8 @@ class FormSearchAddressCategories extends Component
         //sembra andare bene
 
         if (false == filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            //$this->dispatchBrowserEvent('closeModalNotServed');
-            //$this->dispatchBrowserEvent('openModalWrongEmailCap');
+            //$this->dispatch('closeModalNotServed');
+            //$this->dispatch('openModalWrongEmailCap');
             $this->messageError = true;
             dddx('mail non valida');
 
@@ -178,8 +178,8 @@ class FormSearchAddressCategories extends Component
         if (preg_match('/[a-z]/i', $this->cap)) {
             $this->messageError = true;
             dddx('it has alphabet!');
-            //$this->dispatchBrowserEvent('closeModalNotServed');
-            //$this->dispatchBrowserEvent('openModalWrongEmailCap');
+            //$this->dispatch('closeModalNotServed');
+            //$this->dispatch('openModalWrongEmailCap');
 
             return;
         }
@@ -198,8 +198,8 @@ class FormSearchAddressCategories extends Component
             'email' => $this->email,
         ];
         $model->create($data);
-        // $this->dispatchBrowserEvent('openWrongEmailCap');
+        // $this->dispatch('openWrongEmailCap');
 
-        $this->dispatchBrowserEvent('closeModalNotServed');
+        $this->dispatch('closeModalNotServed');
     }
 }
