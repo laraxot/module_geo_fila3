@@ -23,8 +23,7 @@ class CreatePlacesTable extends XotBaseMigration
     {
         // -- CREATE --
         $this->tableCreate(function (Blueprint $blueprint): void {
-
-                $blueprint->increments('id');
+            $blueprint->increments('id');
             $blueprint->nullableMorphs('model');
             $blueprint->text('address')->nullable();
             $blueprint->text('formatted_address')->nullable();
@@ -40,23 +39,22 @@ class CreatePlacesTable extends XotBaseMigration
                 }
             }
 
-                $blueprint->text('nearest_street')->nullable();
+            $blueprint->text('nearest_street')->nullable();
             $blueprint->string('created_by')->nullable();
             $blueprint->string('updated_by')->nullable();
             $blueprint->string('deleted_by')->nullable();
             $blueprint->timestamps();
         });
-// -- UPDATE --
+        // -- UPDATE --
         $this->tableUpdate(function (Blueprint $blueprint): void {
-
             if (! $this->hasColumn('post_type')) {
                 $blueprint->string('post_type', 50)->index()->nullable();
             }
-                /*
-                if (! $this->hasColumn('address')) {
-                    $table->text('address')->nullable();
-                }
-                */
+            /*
+            if (! $this->hasColumn('address')) {
+                $table->text('address')->nullable();
+            }
+            */
             if (! $this->hasColumn('latitude')) {
                 $blueprint->decimal('latitude', 15, 10)->nullable();
                 $blueprint->decimal('longitude', 15, 10)->nullable();
