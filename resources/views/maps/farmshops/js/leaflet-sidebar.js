@@ -26,15 +26,17 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
         L.DomUtil.addClass(this._sidebar, 'sidebar-' + this.options.position);
 
         // Attach touch styling if necessary
-        if (L.Browser.touch)
+        if (L.Browser.touch) {
             L.DomUtil.addClass(this._sidebar, 'leaflet-touch');
+        }
 
         // Find sidebar > div.sidebar-content
         for (i = this._sidebar.children.length - 1; i >= 0; i--) {
             child = this._sidebar.children[i];
             if (child.tagName == 'DIV' &&
-                    L.DomUtil.hasClass(child, 'sidebar-content'))
+                    L.DomUtil.hasClass(child, 'sidebar-content')) {
                 this._container = child;
+            }
         }
 
         // Find sidebar ul.sidebar-tabs > li, sidebar .sidebar-tabs > ul > li
@@ -53,8 +55,9 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
                 this._panes.push(child);
 
                 var closeButtons = child.querySelectorAll('.sidebar-close');
-                for (var j = 0, len = closeButtons.length; j < len; j++)
+                for (var j = 0, len = closeButtons.length; j < len; j++) {
                     this._closeButtons.push(closeButtons[j]);
+                }
             }
         }
     },
@@ -75,7 +78,7 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
             var sub = child.querySelector('a');
             if (sub.hasAttribute('href') && sub.getAttribute('href').slice(0,1) == '#') {
                 L.DomEvent
-                    .on(sub, 'click', L.DomEvent.preventDefault )
+                    .on(sub, 'click', L.DomEvent.preventDefault)
                     .on(sub, 'click', this._onClick, child);
             }
         }
@@ -94,10 +97,10 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
      * @param {L.Map} map
      * @returns {Sidebar}
      */
-     removeFrom: function(map) {
-         console.log('removeFrom() has been deprecated, please use remove() instead as support for this function will be ending soon.');
-         this.remove(map);
-     },
+    removeFrom: function (map) {
+        console.log('removeFrom() has been deprecated, please use remove() instead as support for this function will be ending soon.');
+        this.remove(map);
+    },
 
     /**
      * Remove this sidebar from the map.
@@ -128,25 +131,27 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
      *
      * @param {string} id - The id of the tab to show (without the # character)
      */
-    open: function(id) {
+    open: function (id) {
         var i, child;
 
         // hide old active contents and show new content
         for (i = this._panes.length - 1; i >= 0; i--) {
             child = this._panes[i];
-            if (child.id == id)
+            if (child.id == id) {
                 L.DomUtil.addClass(child, 'active');
-            else if (L.DomUtil.hasClass(child, 'active'))
+            } else if (L.DomUtil.hasClass(child, 'active')) {
                 L.DomUtil.removeClass(child, 'active');
+            }
         }
 
         // remove old active highlights and set new highlight
         for (i = this._tabitems.length - 1; i >= 0; i--) {
             child = this._tabitems[i];
-            if (child.querySelector('a').hash == '#' + id)
+            if (child.querySelector('a').hash == '#' + id) {
                 L.DomUtil.addClass(child, 'active');
-            else if (L.DomUtil.hasClass(child, 'active'))
+            } else if (L.DomUtil.hasClass(child, 'active')) {
                 L.DomUtil.removeClass(child, 'active');
+            }
         }
 
         this.fire('content', { id: id });
@@ -163,12 +168,13 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
     /**
      * Close the sidebar (if necessary).
      */
-    close: function() {
+    close: function () {
         // remove old active highlights
         for (var i = this._tabitems.length - 1; i >= 0; i--) {
             var child = this._tabitems[i];
-            if (L.DomUtil.hasClass(child, 'active'))
+            if (L.DomUtil.hasClass(child, 'active')) {
                 L.DomUtil.removeClass(child, 'active');
+            }
         }
 
         // close sidebar
@@ -183,11 +189,12 @@ L.Control.Sidebar = L.Control.extend(/** @lends L.Control.Sidebar.prototype */ {
     /**
      * @private
      */
-    _onClick: function() {
-        if (L.DomUtil.hasClass(this, 'active'))
+    _onClick: function () {
+        if (L.DomUtil.hasClass(this, 'active')) {
             this._sidebar.close();
-        else if (!L.DomUtil.hasClass(this, 'disabled'))
+        } else if (!L.DomUtil.hasClass(this, 'disabled')) {
             this._sidebar.open(this.querySelector('a').hash.slice(1));
+        }
     },
 
     /**

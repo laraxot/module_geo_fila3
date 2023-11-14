@@ -14,12 +14,12 @@ var tiles = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
     attribution: "&copy; <a target='_blank' href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
 });
 var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
 var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
 
@@ -74,8 +74,9 @@ var restaurantMarker = L.ExtraMarkers.icon({
 //Marker
 
 var geojson1 = L.geoJson(farmshopGeoJson, {
-    pointToLayer: function pointToLayer(feature, latlng) {
-        switch(feature.properties.p){
+    pointToLayer: function pointToLayer(feature, latlng)
+    {
+        switch (feature.properties.p) {
             case 'farm':return L.marker(latlng, { icon: farmMarker }); break;
             case 'beekeeper':return L.marker(latlng, { icon: beekeeperMarker }); break;
             case 'marketplace':return L.marker(latlng, { icon: marketMarker }); break;
@@ -88,7 +89,8 @@ var geojson1 = L.geoJson(farmshopGeoJson, {
         }
     },
 
-    onEachFeature: function onEachFeature(feature, layer) {
+    onEachFeature: function onEachFeature(feature, layer)
+    {
         layer.once("click", function () {
             /*
             $.getJSON('data/' + feature.properties.id + '/details.json', function (data) {
@@ -106,10 +108,9 @@ var geojson1 = L.geoJson(farmshopGeoJson, {
 
 //Changing Cluster radius based on zoom level
 var GetClusterRadius = function (zoom) {
-    if (zoom < 12){
+    if (zoom < 12) {
         return 80;
-    }
-    else{
+    } else {
         return 45;
     }
 }
@@ -118,7 +119,8 @@ var markers = L.markerClusterGroup({
     iconCreateFunction: function (cluster) {
         var markers = cluster.getAllChildMarkers();
 
-        function markerTypen (markers){
+        function markerTypen(markers)
+        {
             var returnWert;
             var farmsInCluster = false;
             var marketsInCluster = false;
@@ -128,7 +130,7 @@ var markers = L.markerClusterGroup({
 
 
             for (var c = 0; c < markers.length; c++) {
-                switch(markers[c].feature.properties.p){
+                switch (markers[c].feature.properties.p) {
                     case 'farm': farmsInCluster = true; break;
                     case 'beekeeper': beekeepersInCluster = true; break;
                     case 'marketplace': marketsInCluster = true; break;
@@ -137,45 +139,46 @@ var markers = L.markerClusterGroup({
                     default: console.log('don know ['+ $p +'] ');break;
                 }
                 //console.log("f " +farmsInCluster +" m " +marketsInCluster +" a " +machinesInCluster)
-              }
+            }
 
-              function farmsAreInCluster (farmsInCluster) {
-                  if (farmsInCluster) {
-                      return "<img src='img/hof.png' style='height: 14px;'> "
-                  }
-                  else {
-                      return ""
-                  }
-              }
+            function farmsAreInCluster(farmsInCluster)
+            {
+                if (farmsInCluster) {
+                    return "<img src='img/hof.png' style='height: 14px;'> "
+                } else {
+                    return ""
+                }
+            }
 
-              function marketsAreInCluster (marketsInCluster) {
+            function marketsAreInCluster(marketsInCluster)
+            {
                 if (marketsInCluster) {
                     return "<img src='img/markt.png' style='height: 14px;'> "
-                }
-                else {
+                } else {
                     return ""
                 }
             }
 
-            function beekeepersAreInCluster (beekeepersInCluster) {
+            function beekeepersAreInCluster(beekeepersInCluster)
+            {
                 if (beekeepersInCluster) {
                     return "<img src='img/imker.png' style='height: 14px;'> "
-                }
-                else {
+                } else {
                     return ""
                 }
             }
 
-            function machinesAreInCluster (machinesInCluster) {
+            function machinesAreInCluster(machinesInCluster)
+            {
                 if (machinesInCluster) {
                     return "<img src='img/automat.png' style='height: 14px;'> "
-                }
-                else {
+                } else {
                     return ""
                 }
             }
 
-            function summary(){
+            function summary()
+            {
                 var $summary="";
                 if (restaurantInCluster) {
                     $summary+='<i class="fas fa-utensils"></i>';
@@ -184,11 +187,10 @@ var markers = L.markerClusterGroup({
             }
 
             //change cluster content based on zoom level
-            if (map.getZoom() >= 8){
+            if (map.getZoom() >= 8) {
                 //returnWert = markers.length +"<div style='padding-top:2px;'>" +farmsAreInCluster(farmsInCluster) +marketsAreInCluster(marketsInCluster) +machinesAreInCluster (machinesInCluster) +beekeepersAreInCluster(beekeepersInCluster) +"</div>";
                 returnWert = markers.length +"<div style='padding-top:2px;'>" +summary() +"</div>";
-            }
-            else{
+            } else {
                 returnWert = "<div style='padding:8px;'>" +markers.length +"</div>";
             }
 
@@ -247,24 +249,24 @@ L.control.locate({
         inView: 'setView',
         outOfView: 'setView'
     }
-}
-).addTo(map);
+}).addTo(map);
 
-function popupcontent(feature, layer) {
+function popupcontent(feature, layer)
+{
     console.log(feature);
     /*
-	var customPopup = `
-			<img class="wwone__map-infobox__thumb" src="##img_src##" />
-			<div class="wwone__map-infobox__badge">##distance## Km</div>
-			<div class="wwone__map-infobox__inner">
-				<div class="wwone__map-infobox__inner__heading">##title##</div>
-				<div class="wwone__map-infobox__inner__location">##subtitle##</div>
-				<div class="wwone__map-infobox__inner__info">
-					<div class="wwone__map-infobox__inner__info__type"><i class="fa fa-cutlery" aria-hidden="true"></i> ##cuisineCat_list##</div>
+    var customPopup = `
+            <img class="wwone__map-infobox__thumb" src="##img_src##" />
+            <div class="wwone__map-infobox__badge">##distance## Km</div>
+            <div class="wwone__map-infobox__inner">
+                <div class="wwone__map-infobox__inner__heading">##title##</div>
+                <div class="wwone__map-infobox__inner__location">##subtitle##</div>
+                <div class="wwone__map-infobox__inner__info">
+                    <div class="wwone__map-infobox__inner__info__type"><i class="fa fa-cutlery" aria-hidden="true"></i> ##cuisineCat_list##</div>
 
-				</div>
-				<a class="wwone__map-infobox__inner__btn btn" href="##url##" target="_blank">View &raquo;</a>
-			</div>`;
+                </div>
+                <a class="wwone__map-infobox__inner__btn btn" href="##url##" target="_blank">View &raquo;</a>
+            </div>`;
     for (var prop in feature) {
         console.log('prop :'+prop);
         customPopup=customPopup.replace('##'+prop+'##',feature[prop]);
