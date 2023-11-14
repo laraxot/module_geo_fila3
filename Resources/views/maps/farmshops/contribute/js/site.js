@@ -8,18 +8,20 @@ var findme_map = L.map('findme-map')
 var findme_marker = L.marker([0,0], {draggable:true}).addTo(findme_map);
 findme_marker.setOpacity(0);
 
-if (location.hash) location.hash = '';
+if (location.hash) {
+    location.hash = '';
+}
 
 var successString,loadingText;
 
-i18n.init({ fallbackLng: 'de', postAsync: 'false' }, function() {
+i18n.init({ fallbackLng: 'de', postAsync: 'false' }, function () {
     $("body").i18n();
 
     successString=i18n.t('messages.success', { escapeInterpolation: false });
     loadingText=i18n.t('messages.loadingText');
     var detectedLang = 'de';
    // var detectedLang = i18n.lng();
-    var buildSelectControl = function(data) {
+    var buildSelectControl = function (data) {
         $("#category").select2({data: data});
     };
 
@@ -29,7 +31,8 @@ i18n.init({ fallbackLng: 'de', postAsync: 'false' }, function() {
     });
 });
 
-function zoom_to_point(chosen_place, map, marker) {
+function zoom_to_point(chosen_place, map, marker)
+{
     console.log(chosen_place);
 
     marker.setOpacity(1);
@@ -42,7 +45,7 @@ $("#use_my_location").click(function (e) {
     $("#couldnt-find").hide();
     $("#success").hide();
     if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var point = {
                 lat: position.coords.latitude,
                 lon: position.coords.longitude
@@ -58,15 +61,17 @@ $("#use_my_location").click(function (e) {
             $("#couldnt-find").show();
         });
     } else {
-      $("#couldnt-find").show();
+        $("#couldnt-find").show();
     }
 });
-$("#find").submit(function(e) {
+$("#find").submit(function (e) {
     e.preventDefault();
     $("#couldnt-find").hide();
     $("#success").hide();
     var address_to_find = $("#address").val();
-    if (address_to_find.length === 0) return;
+    if (address_to_find.length === 0) {
+        return;
+    }
     var qwarg = {
         format: 'json',
         q: address_to_find
@@ -74,7 +79,7 @@ $("#find").submit(function(e) {
     var url = "https://nominatim.openstreetmap.org/search?" + $.param(qwarg);
     $("#findme h4").text(loadingText);
     $("#findme").addClass("loading");
-    $.getJSON(url, function(data) {
+    $.getJSON(url, function (data) {
         if (data.length > 0) {
             zoom_to_point(data[0], findme_map, findme_marker);
 
@@ -89,7 +94,7 @@ $("#find").submit(function(e) {
     });
 });
 
-$(window).on('hashchange', function() {
+$(window).on('hashchange', function () {
     if (location.hash == '#details') {
         $('#collect-data-step').removeClass('hide');
         $('#address-step').addClass('hide');
@@ -111,7 +116,7 @@ $(window).on('hashchange', function() {
     findme_map.invalidateSize();
 });
 
-$("#collect-data-done").click(function() {
+$("#collect-data-done").click(function () {
     location.hash = '#done';
 
     var note_body = "farmshops.eu submitted note from a user:\n" +
@@ -128,12 +133,12 @@ $("#collect-data-done").click(function() {
             lat: latlon.lat,
             lon: latlon.lng,
             text: note_body
-        };
+    };
 
     $.post(
         'https://api.openstreetmap.org/api/0.6/notes.json',
         note_data,
-        function(result) {
+        function (result) {
             var id = result.properties.id;
             $("#linkcoords").append(
                 '<a href="https://osm.org/note/' + id + '">https://osm.org/note/' + id + '</a>'
@@ -142,7 +147,8 @@ $("#collect-data-done").click(function() {
     );
 });
 
-function clearFields() {
+function clearFields()
+{
     $("#name").val('');
     $("#phone").val('');
     $("#website").val('');

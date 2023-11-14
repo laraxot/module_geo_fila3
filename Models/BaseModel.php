@@ -16,6 +16,7 @@ use Modules\Xot\Traits\Updater;
 abstract class BaseModel extends Model
 {
     use Updater;
+
     /**
      * Indicates whether attributes are snake cased on arrays.
      *

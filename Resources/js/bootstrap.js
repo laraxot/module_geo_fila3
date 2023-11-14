@@ -23,7 +23,8 @@ try {
     //require('opening_hours');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+}
 
 
 var pub_res = '.';

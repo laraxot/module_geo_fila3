@@ -1,14 +1,18 @@
 $t = loadMarkers(base_url_lang + '/restaurant?responseType=geoJson');
 var $ris = null;
 
-function loadMarkers($url) {
+function loadMarkers($url)
+{
     console.log('loadMarkers :' + $url);
     $('#map_progress').show();
-    $.getJSON($url).done(function(response) {
+    $.getJSON($url).done(function (response) {
         var $next = response.links.next;
         $tmp = response.data;
-        if ($ris == null) $ris = $tmp;
-        else $ris.features = $ris.features.concat($tmp);
+        if ($ris == null) {
+            $ris = $tmp;
+        } else {
+            $ris.features = $ris.features.concat($tmp);
+        }
         var $current_page = response.meta.current_page;
         var $last_page = response.meta.last_page;
         var $perc = $current_page * 100 / $last_page;
@@ -23,7 +27,6 @@ function loadMarkers($url) {
             //console.log($ris);
             $('#map_progress').hide()
             xotMarkers($ris);
-
         }
 
         //return $ris;
@@ -32,7 +35,8 @@ function loadMarkers($url) {
     //return $ris;
 }
 
-function xotMarkers($data) {
+function xotMarkers($data)
+{
 
     var mappos = L.Permalink.getMapLocation();
     var map = L.map('map', {
@@ -112,7 +116,8 @@ function xotMarkers($data) {
     //console.log($data);
 
     var geojson1 = L.geoJson($data, {
-        pointToLayer: function pointToLayer(feature, latlng) {
+        pointToLayer: function pointToLayer(feature, latlng)
+        {
             var $p = feature.properties.p;
             switch ($p) {
                 case 'beekeeper':
@@ -131,8 +136,9 @@ function xotMarkers($data) {
 
         },
 
-        onEachFeature: function onEachFeature(feature, layer) {
-            layer.once("click", function() {
+        onEachFeature: function onEachFeature(feature, layer)
+        {
+            layer.once("click", function () {
                 //console.log(feature);
                 /*
                 $.getJSON('../data/' + feature.properties.id + '/details.json', function (data) {
@@ -141,7 +147,7 @@ function xotMarkers($data) {
                 */
                 var $json_url = base_url + feature.properties.url + '?format=json';
                 //console.log($json_url);
-                $.getJSON($json_url, function(data) {
+                $.getJSON($json_url, function (data) {
                     layer.bindPopup(popupcontent(data, layer)).openPopup();
                 });
             });
@@ -149,7 +155,7 @@ function xotMarkers($data) {
     }).addLayer(tiles);
 
     //Changing Cluster radius based on zoom level
-    var GetClusterRadius = function(zoom) {
+    var GetClusterRadius = function (zoom) {
         if (zoom < 12) {
             return 80;
         } else {
@@ -158,10 +164,11 @@ function xotMarkers($data) {
     }
 
     var markers = L.markerClusterGroup({
-        iconCreateFunction: function(cluster) {
+        iconCreateFunction: function (cluster) {
             var markers = cluster.getAllChildMarkers();
 
-            function markerTypen(markers) {
+            function markerTypen(markers)
+            {
                 var returnWert;
                 var farmsInCluster = false;
                 var marketsInCluster = false;
@@ -194,10 +201,10 @@ function xotMarkers($data) {
                     }
 
                     //console.log("f " +farmsInCluster +" m " +marketsInCluster +" a " +machinesInCluster)
-
                 }
 
-                function farmsAreInCluster(farmsInCluster) {
+                function farmsAreInCluster(farmsInCluster)
+                {
                     if (farmsInCluster) {
                         return "<img src='img/hof.png' style='height: 14px;'> "
                     } else {
@@ -205,7 +212,8 @@ function xotMarkers($data) {
                     }
                 }
 
-                function marketsAreInCluster(marketsInCluster) {
+                function marketsAreInCluster(marketsInCluster)
+                {
                     if (marketsInCluster) {
                         return "<img src='img/markt.png' style='height: 14px;'> "
                     } else {
@@ -213,7 +221,8 @@ function xotMarkers($data) {
                     }
                 }
 
-                function beekeepersAreInCluster(beekeepersInCluster) {
+                function beekeepersAreInCluster(beekeepersInCluster)
+                {
                     if (beekeepersInCluster) {
                         return "<img src='img/imker.png' style='height: 14px;'> "
                     } else {
@@ -221,7 +230,8 @@ function xotMarkers($data) {
                     }
                 }
 
-                function machinesAreInCluster(machinesInCluster) {
+                function machinesAreInCluster(machinesInCluster)
+                {
                     if (machinesInCluster) {
                         return "<img src='img/automat.png' style='height: 14px;'> "
                     } else {
@@ -229,7 +239,8 @@ function xotMarkers($data) {
                     }
                 }
 
-                function summary() {
+                function summary()
+                {
                     var $summary = "";
                     if (restaurantInCluster) {
                         $summary += '<i class="fas fa-utensils"></i>';
