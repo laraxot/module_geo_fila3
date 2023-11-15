@@ -15,7 +15,6 @@ use Modules\Xot\Traits\Updater;
  * @method static Builder|GeoNamesCap newModelQuery()
  * @method static Builder|GeoNamesCap newQuery()
  * @method static Builder|GeoNamesCap query()
- *
  * @mixin \Eloquent
  */
 class GeoNamesCap extends Model
