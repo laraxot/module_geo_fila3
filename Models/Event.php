@@ -17,17 +17,18 @@ use Modules\Lang\Models\Post;
 /**
  * Modules\Geo\Models\Event.
  *
- * @property int $post_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $date_start
- * @property \Illuminate\Support\Carbon|null $date_end
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property string|null $deleted_by
- * @property-read \Modules\Geo\Models\Place|null $place
- * @property-read Collection<int, \Modules\Geo\Models\Place> $places
- * @property-read int|null $places_count
+ * @property int                                        $post_id
+ * @property \Illuminate\Support\Carbon|null            $created_at
+ * @property \Illuminate\Support\Carbon|null            $updated_at
+ * @property \Illuminate\Support\Carbon|null            $date_start
+ * @property \Illuminate\Support\Carbon|null            $date_end
+ * @property string|null                                $created_by
+ * @property string|null                                $updated_by
+ * @property string|null                                $deleted_by
+ * @property \Modules\Geo\Models\Place|null             $place
+ * @property Collection<int, \Modules\Geo\Models\Place> $places
+ * @property int|null                                   $places_count
+ *
  * @method static Builder|Event newModelQuery()
  * @method static Builder|Event newQuery()
  * @method static Builder|Event query()
@@ -39,6 +40,7 @@ use Modules\Lang\Models\Post;
  * @method static Builder|Event wherePostId($value)
  * @method static Builder|Event whereUpdatedAt($value)
  * @method static Builder|Event whereUpdatedBy($value)
+ *
  * @mixin Eloquent
  */
 class Event extends BaseModelLang
