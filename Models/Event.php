@@ -28,7 +28,6 @@ use Modules\Lang\Models\Post;
  * @property \Modules\Geo\Models\Place|null             $place
  * @property Collection<int, \Modules\Geo\Models\Place> $places
  * @property int|null                                   $places_count
- *
  * @method static Builder|Event newModelQuery()
  * @method static Builder|Event newQuery()
  * @method static Builder|Event query()
@@ -40,7 +39,6 @@ use Modules\Lang\Models\Post;
  * @method static Builder|Event wherePostId($value)
  * @method static Builder|Event whereUpdatedAt($value)
  * @method static Builder|Event whereUpdatedBy($value)
- *
  * @mixin Eloquent
  */
 class Event extends BaseModelLang

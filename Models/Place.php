@@ -63,7 +63,6 @@ use Modules\Geo\Database\Factories\PlaceFactory;
  * @property Model|\Eloquent $linked
  * @property mixed           $address
  * @property mixed           $latlng
- *
  * @method static \Modules\Geo\Database\Factories\PlaceFactory factory($count = null, $state = [])
  * @method static Builder|Place                                newModelQuery()
  * @method static Builder|Place                                newQuery()
@@ -108,7 +107,11 @@ use Modules\Geo\Database\Factories\PlaceFactory;
  * @method static Builder|Place                                whereStreetNumberShort($value)
  * @method static Builder|Place                                whereUpdatedAt($value)
  * @method static Builder|Place                                whereUpdatedBy($value)
- *
+ * @property string|null $model_type
+ * @property int|null $model_id
+ * @method static Builder|Place whereAddress($value)
+ * @method static Builder|Place whereModelId($value)
+ * @method static Builder|Place whereModelType($value)
  * @mixin \Eloquent
  */
 class Place extends BaseModelLang
