@@ -25,7 +25,7 @@ use Modules\Lang\Models\Post;
  * @property string|null                                $created_by
  * @property string|null                                $updated_by
  * @property string|null                                $deleted_by
- * @property \Modules\Geo\Models\Place|null             $place
+ * @property Place|null                                 $place
  * @property Collection<int, \Modules\Geo\Models\Place> $places
  * @property int|null                                   $places_count
  *

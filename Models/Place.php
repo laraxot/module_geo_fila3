@@ -210,7 +210,7 @@ class Place extends BaseModelLang
     /**
      * Undocumented function.
      *
-     * @param  string|array  $value
+     * @param string|array $value
      */
     public function setAddressAttribute($value): void
     {
