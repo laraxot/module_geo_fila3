@@ -32,24 +32,28 @@ abstract class BasePivot extends Pivot
      * @var string
      */
     protected $connection = 'geo'; // this will use the specified database connection
+
     /**
      * @var array
      */
     protected $appends = [];
+
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'id'=>'string', //must be string else primary key of related model will be typed as int
+        'id' => 'string', //must be string else primary key of related model will be typed as int
         'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'updated_at' => 'datetime',
     ];
+
     /**
      * Undocumented variable.
      *
      * @var string
      */
     protected $primaryKey = 'id';
+
     /**
      * @var bool
      */

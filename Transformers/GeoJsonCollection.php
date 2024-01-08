@@ -22,7 +22,7 @@ class GeoJsonCollection extends ResourceCollection
     public $collects = GeoJsonResource::class;
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {

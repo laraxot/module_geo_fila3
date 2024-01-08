@@ -35,7 +35,7 @@ use Modules\Cms\Services\PanelService as Panel;
 class GeoJsonResource extends ResCollection
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      */
     public function toArray($request): array
     {
