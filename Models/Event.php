@@ -25,11 +25,11 @@ use Modules\Lang\Models\Post;
  * @property string|null                                $created_by
  * @property string|null                                $updated_by
  * @property string|null                                $deleted_by
-<<<<<<< HEAD
+ *                                                                    <<<<<<< HEAD
  * @property Place|null                                 $place
-=======
- * @property \Modules\Geo\Models\Place|null             $place
->>>>>>> dev
+ *                                                                    =======
+ * @property Place|null                                 $place
+ *                                                                    >>>>>>> dev
  * @property Collection<int, \Modules\Geo\Models\Place> $places
  * @property int|null                                   $places_count
  *
