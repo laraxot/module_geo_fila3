@@ -29,34 +29,18 @@ abstract class BaseMorphPivot extends MorphPivot
      * @var array
      */
     protected $appends = [];
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var string
      */
     protected $primaryKey = 'id';
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var bool
      */
     public $incrementing = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var bool
      */
     public $timestamps = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var string[]
      */
@@ -67,12 +51,8 @@ abstract class BaseMorphPivot extends MorphPivot
         'user_id',
         'note',
     ];
-<<<<<<< HEAD
 
     protected $connection = 'geo';
 
-=======
-    protected $connection = 'geo';
->>>>>>> dev
     protected $casts = ['created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime'];
 }

@@ -35,51 +35,27 @@ abstract class BaseModel extends Model
      * @var string[]
      */
     protected $fillable = ['id'];
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var array<string, string>
      */
     protected $casts = ['published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var string
      */
     protected $primaryKey = 'id';
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var bool
      */
     public $incrementing = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var array<int, string>
      */
     protected $hidden = [
         // 'password'
     ];
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var bool
      */
     public $timestamps = true;
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     protected $connection = 'geo';
 }

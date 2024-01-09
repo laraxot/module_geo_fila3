@@ -32,15 +32,10 @@ abstract class BasePivot extends Pivot
      * @var string
      */
     protected $connection = 'geo'; // this will use the specified database connection
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var array
      */
     protected $appends = [];
-<<<<<<< HEAD
 
     /**
      * @var array<string, string>
@@ -51,22 +46,12 @@ abstract class BasePivot extends Pivot
         'updated_at' => 'datetime',
     ];
 
-=======
-    /**
-     * @var array<string, string>
-     */
-    protected $casts = ['created_at' => 'datetime', 'updated_at' => 'datetime'];
->>>>>>> dev
     /**
      * Undocumented variable.
      *
      * @var string
      */
     protected $primaryKey = 'id';
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     /**
      * @var bool
      */

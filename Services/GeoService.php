@@ -19,10 +19,6 @@ class GeoService
     private static ?self $_instance = null;
 
     public static string $latitude_field = 'latitude';
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
     public static string $longitude_field = 'longitude';
 
     /**
@@ -32,11 +28,7 @@ class GeoService
      */
     public static function getInstance(): self
     {
-<<<<<<< HEAD
         if (! self::$_instance instanceof GeoService) {
-=======
-        if (! self::$_instance instanceof \Modules\Geo\Services\GeoService) {
->>>>>>> dev
             self::$_instance = new self();
         }
 
