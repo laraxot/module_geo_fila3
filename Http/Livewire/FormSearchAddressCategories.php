@@ -24,6 +24,7 @@ class FormSearchAddressCategories extends Component
     // public \Illuminate\View\ComponentAttributeBag $attributes;
     // public \Illuminate\Support\HtmlString $slot;
     public string $name = 'address';
+<<<<<<< HEAD
 
     public array $form_data = [];
 
@@ -41,6 +42,19 @@ class FormSearchAddressCategories extends Component
 
     public bool $messageError = false;
 
+=======
+    public array $form_data = [];
+
+    public bool $showActivityTypes = false;
+    public Collection $enabledTypes;
+    public bool $warningSuggestedAddresses = false;
+    public bool $warningCivicNumber = false;
+
+    public string $email = '';
+    public string $cap = '';
+
+    public bool $messageError = false;
+>>>>>>> dev
     public SessionManager $session;
 
     /**

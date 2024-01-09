@@ -1,8 +1,13 @@
 {
+<<<<<<< HEAD
     "name": "laraxot/module_geo_fila3",
     "description": "",
     "homepage": "https://github.com/laraxot/module_geo_fila3.git",
     "license": "MIT",
+=======
+    "name": "laraxot/module_geo",
+    "description": "",
+>>>>>>> dev
     "authors": [{
         "name": "Marco Sottana",
         "email": "marco.sottana@gmail.com",

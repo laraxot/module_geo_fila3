@@ -9,6 +9,7 @@ use Spatie\LaravelData\Data;
 class GeoData extends Data
 {
     public array $latlng;
+<<<<<<< HEAD
 
     public string $route;
 
@@ -20,5 +21,12 @@ class GeoData extends Data
 
     public string $administrative_area_level_2_short;
 
+=======
+    public string $route;
+    public string $street_number;
+    public string $postal_code;
+    public string $administrative_area_level_3;
+    public string $administrative_area_level_2_short;
+>>>>>>> dev
     public string $value;
 }
