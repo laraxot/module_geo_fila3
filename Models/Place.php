@@ -118,14 +118,16 @@ use Modules\Geo\Database\Factories\PlaceFactory;
  *
  * @mixin \Eloquent
  */
-class Place extends BaseModelLang
+class Place extends BaseModel
 {
     use HasFactory;
 
     /**
      * @var string[]
      */
-    protected $fillable = ['id', 'post_id', 'post_type',
+    protected $fillable = [
+        'id',
+        'post_id', 'post_type',
         'model_id', 'model_type',
         // ---- address_components----
         'premise', 'locality', 'postal_town',
