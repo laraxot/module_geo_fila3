@@ -11,7 +11,7 @@ namespace Modules\Geo\Http\Livewire;
 
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
-use Modules\Cms\Actions\GetViewAction;
+use Modules\Xot\Actions\GetViewAction;
 
 class Test extends Component
 {
