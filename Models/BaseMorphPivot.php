@@ -25,9 +25,6 @@ abstract class BaseMorphPivot extends MorphPivot
 
     protected $perPage = 30;
 
-    /**
-     * @var array
-     */
     protected array $appends = [];
     protected string $primaryKey = 'id';
     /**
