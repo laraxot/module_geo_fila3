@@ -23,14 +23,14 @@ class AddressField extends Section
             ->relationship('place')
             ->schema(
                 [
-                TextInput::make('route')->label(__('geo::place.fields.route')), // via
-                TextInput::make('street_number')->label(__('geo::place.fields.street_number')), // civico
-                TextInput::make('postal_code')->label(__('geo::place.fields.postal_code')), // 20124
-                TextInput::make('locality')->label(__('geo::place.fields.locality')), // citta
-                TextInput::make('administrative_area_level_2')->label(__('geo::place.fields.administrative_area_level_2')), // provincia
-                // TextInput::make('administrative_area_level_1')->label(__('geo::place.fields.administrative_area_level_1')), //regione
-                TextInput::make('country')->label(__('geo::place.fields.country')), // italia
-            ]
+                    TextInput::make('route')->label(__('geo::place.fields.route')), // via
+                    TextInput::make('street_number')->label(__('geo::place.fields.street_number')), // civico
+                    TextInput::make('postal_code')->label(__('geo::place.fields.postal_code')), // 20124
+                    TextInput::make('locality')->label(__('geo::place.fields.locality')), // citta
+                    TextInput::make('administrative_area_level_2')->label(__('geo::place.fields.administrative_area_level_2')), // provincia
+                    // TextInput::make('administrative_area_level_1')->label(__('geo::place.fields.administrative_area_level_1')), //regione
+                    TextInput::make('country')->label(__('geo::place.fields.country')), // italia
+                ]
             )->columns(2);
     }
 }

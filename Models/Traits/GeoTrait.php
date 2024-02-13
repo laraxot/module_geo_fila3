@@ -149,7 +149,7 @@ where zone_polygon IS NOT NULL
 
     public function getAddress(): string
     {
-        if ($this->country === '') {
+        if ('' === $this->country) {
             $this->country = 'Italia';
         }
 
@@ -158,11 +158,11 @@ where zone_polygon IS NOT NULL
 
     public function getLatitudeAttribute(?float $value): ?float
     {
-        if ($value !== null) {
+        if (null !== $value) {
             return $value;
         }
         $address = $this->address;
-        if ($address === null) {
+        if (null === $address) {
             return null;
         }
         if (isJson($address)) {
@@ -290,7 +290,7 @@ where zone_polygon IS NOT NULL
      */
     public function getFullAddressAttribute(?string $value): ?string
     {
-        if ($this->address === null) {
+        if (null === $this->address) {
             return null;
         }
         if (isJson($this->address)) {
