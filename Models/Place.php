@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Geo\Models;
 
 // ------services---------
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -123,9 +122,21 @@ class Place extends BaseModel
     use HasFactory;
 
     /**
-     * @var string[]
+     * @var array<string>
      */
-    protected $fillable = [
+    public static array $address_components = [
+        'premise', 'locality', 'postal_town',
+        'administrative_area_level_3', 'administrative_area_level_2',  'administrative_area_level_1',
+        'country',
+        'street_number', 'route', 'postal_code',
+        'googleplace_url',
+        'point_of_interest', 'political', 'campground',
+    ];
+
+    /**
+     * @var array<string>
+     */
+    protected array $fillable = [
         'id',
         'post_id', 'post_type',
         'model_id', 'model_type',
@@ -144,31 +155,9 @@ class Place extends BaseModel
     ];
 
     /**
-     * @var string[]
+     * @var array<string>
      */
-    public static array $address_components = [
-        'premise', 'locality', 'postal_town',
-        'administrative_area_level_3', 'administrative_area_level_2',  'administrative_area_level_1',
-        'country',
-        'street_number', 'route', 'postal_code',
-        'googleplace_url',
-        'point_of_interest', 'political', 'campground',
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected $appends = ['value'];
-
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return Factory
-     */
-    protected static function newFactory()
-    {
-        return PlaceFactory::new();
-    }
+    protected array $appends = ['value'];
 
     // ----- mutators -----
     /*
@@ -194,10 +183,7 @@ class Place extends BaseModel
         return $this->route.', '.$this->street_number.', '.$this->locality.', '.$this->administrative_area_level_2.', '.$this->country;
     }
 
-    /**
-     * @return MorphTo
-     */
-    public function linked()
+    public function linked(): MorphTo
     {
         return $this->morphTo('post');
     }
@@ -211,10 +197,8 @@ class Place extends BaseModel
 
     /**
      * Undocumented function.
-     *
-     * @param string|array $value
      */
-    public function setAddressAttribute($value): void
+    public function setAddressAttribute(string|array $value): void
     {
         if (\is_string($value) && isJson($value)) {
             $json = (array) json_decode($value, null, 512, JSON_THROW_ON_ERROR);
@@ -234,5 +218,13 @@ class Place extends BaseModel
         }
         $this->attributes['address'] = $value;
         // dddx(['isJson'=>\isJson($value),'value'=>$value]);
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): Factory
+    {
+        return PlaceFactory::new();
     }
 }

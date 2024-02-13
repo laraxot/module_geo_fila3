@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 // --- models ---
 use Modules\Geo\Datas\GeoData;
 // ---- services --
-use Modules\Geo\Models\Place;
 use Modules\Geo\Services\GeoService;
 
 /**
@@ -66,12 +65,7 @@ trait GeoTrait
     }
 
     // ---- Scopes ----
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeWithDistance($query, float $lat, float $lng)
+    public function scopeWithDistance(Builder $query, float $lat, float $lng): Builder
     {
         $q = $query;
         if ($lat > 0 && $lng > 0) {
@@ -84,12 +78,7 @@ trait GeoTrait
         return $q;
     }
 
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeWithDistanceCustomField($query, string $lat_field, string $lng_field, float $lat, float $lng)
+    public function scopeWithDistanceCustomField(Builder $query, string $lat_field, string $lng_field, float $lat, float $lng): Builder
     {
         $q = $query;
         if ($lat > 0 && $lng > 0) {
@@ -102,12 +91,7 @@ trait GeoTrait
         return $q;
     }
 
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeOfInPolygon($query, string $polygon_field, float $lat, float $lng)
+    public function scopeOfInPolygon(Builder $query, string $polygon_field, float $lat, float $lng): Builder
     {
         // (concat('POLYGON(',replace(replace(replace(replace(Replace(REPLACE(zone_polygon,'"lat":',''),',"lng":',' '),'{',''),'}',''),'[','('),']',')'),')'))
         // errore poligono non chiuso
@@ -165,7 +149,7 @@ where zone_polygon IS NOT NULL
 
     public function getAddress(): string
     {
-        if ('' === $this->country) {
+        if ($this->country === '') {
             $this->country = 'Italia';
         }
 
@@ -174,11 +158,11 @@ where zone_polygon IS NOT NULL
 
     public function getLatitudeAttribute(?float $value): ?float
     {
-        if (null !== $value) {
+        if ($value !== null) {
             return $value;
         }
         $address = $this->address;
-        if (null === $address) {
+        if ($address === null) {
             return null;
         }
         if (isJson($address)) {
@@ -306,7 +290,7 @@ where zone_polygon IS NOT NULL
      */
     public function getFullAddressAttribute(?string $value): ?string
     {
-        if (null === $this->address) {
+        if ($this->address === null) {
             return null;
         }
         if (isJson($this->address)) {

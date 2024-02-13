@@ -7,7 +7,7 @@ namespace Modules\Geo\Transformers;
 /*
 *  GEOJSON e' uno standard
 * https://it.wikipedia.org/wiki/GeoJSON
-**/
+*/
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -16,15 +16,9 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  */
 class GeoJsonCollection extends ResourceCollection
 {
-    /**
-     * @var string
-     */
-    public $collects = GeoJsonResource::class;
+    public string $collects = GeoJsonResource::class;
 
-    /**
-     * @param Request $request
-     */
-    public function toArray($request): array
+    public function toArray(Request $request): array
     {
         return [
             'type' => 'FeatureCollection',

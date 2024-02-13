@@ -21,7 +21,8 @@ class AddressField extends Section
             ->icon('heroicon-o-map-pin')
             // ->label(__('geo::place.fields.address'))
             ->relationship('place')
-            ->schema([
+            ->schema(
+                [
                 TextInput::make('route')->label(__('geo::place.fields.route')), // via
                 TextInput::make('street_number')->label(__('geo::place.fields.street_number')), // civico
                 TextInput::make('postal_code')->label(__('geo::place.fields.postal_code')), // 20124
