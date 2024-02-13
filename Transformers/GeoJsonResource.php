@@ -11,10 +11,9 @@ namespace Modules\Geo\Transformers;
 /*
 *  GEOJSON e' uno standard
 * https://it.wikipedia.org/wiki/GeoJSON
-**/
+*/
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource as ResCollection;
-use Modules\Cms\Services\PanelService as Panel;
 
 /**
  * Class GeoJsonResource.
@@ -34,10 +33,7 @@ use Modules\Cms\Services\PanelService as Panel;
  */
 class GeoJsonResource extends ResCollection
 {
-    /**
-     * @param Request $request
-     */
-    public function toArray($request): array
+    public function toArray(Request $request): array
     {
         app()->getLocale();
 

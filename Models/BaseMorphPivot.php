@@ -18,33 +18,22 @@ abstract class BaseMorphPivot extends MorphPivot
      * Indicates whether attributes are snake cased on arrays.
      *
      * @see  https://laravel-news.com/6-eloquent-secrets
-     *
-     * @var bool
      */
-    public static $snakeAttributes = true;
+    public static bool $snakeAttributes = true;
+    public bool $incrementing = true;
+    public bool $timestamps = true;
 
     protected $perPage = 30;
 
     /**
      * @var array
      */
-    protected $appends = [];
+    protected array $appends = [];
+    protected string $primaryKey = 'id';
     /**
-     * @var string
+     * @var array<string>
      */
-    protected $primaryKey = 'id';
-    /**
-     * @var bool
-     */
-    public $incrementing = true;
-    /**
-     * @var bool
-     */
-    public $timestamps = true;
-    /**
-     * @var string[]
-     */
-    protected $fillable = [
+    protected array $fillable = [
         'id',
         'post_id', 'post_type',
         'related_type',

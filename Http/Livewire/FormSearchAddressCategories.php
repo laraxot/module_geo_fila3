@@ -14,7 +14,6 @@ use Illuminate\Session\SessionManager;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\Xot\Actions\GetViewAction;
-use Modules\Xot\Services\ActionService;
 
 /**
  * Undocumented class.

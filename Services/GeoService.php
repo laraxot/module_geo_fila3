@@ -16,10 +16,10 @@ namespace Modules\Geo\Services;
  */
 class GeoService
 {
-    private static ?self $_instance = null;
 
     public static string $latitude_field = 'latitude';
     public static string $longitude_field = 'longitude';
+    private static ?self $_instance = null;
 
     /**
      * getInstance.
@@ -92,16 +92,16 @@ class GeoService
         if (($lat1 === $lat2) && ($lon1 === $lon2)) {
             return 0;
         }
-        if (null === $lat1) {
+        if ($lat1 === null) {
             return null;
         }
-        if (null === $lon1) {
+        if ($lon1 === null) {
             return null;
         }
-        if (null === $lat2) {
+        if ($lat2 === null) {
             return null;
         }
-        if (null === $lon2) {
+        if ($lon2 === null) {
             return null;
         }
         $theta = $lon1 - $lon2;
@@ -109,7 +109,7 @@ class GeoService
         $dist = acos($dist);
         $dist = rad2deg($dist);
         $miles = $dist * 60 * 1.1515;
-        if (null === $unit) {
+        if ($unit === null) {
             $unit = 'K'; // default
         }
         $unit = strtoupper($unit);
@@ -124,11 +124,7 @@ class GeoService
     // echo GeoService::distance(32.9697, -96.80322, 29.46786, -98.53506, "M") . " Miles<br>";
     // echo GeoService::distance(32.9697, -96.80322, 29.46786, -98.53506, "K") . " Kilometers<br>";
     // echo GeoService::distance(32.9697, -96.80322, 29.46786, -98.53506, "N") . " Nautical Miles<br>";
-    /**
-     * @param float $latitude
-     * @param float $longitude
-     */
-    public static function haversine($latitude, $longitude): string
+    public static function haversine(float $latitude, float $longitude): string
     {
         return '(6371 * acos(cos(radians('.$latitude.'))
         * cos(radians(`'.self::$latitude_field.'`))
@@ -165,7 +161,7 @@ class GeoService
 
     public static function pointInPolygon(float $lat, float $lng, ?string $polygon): bool
     {
-        if (null === $polygon || '' === $polygon) {
+        if ($polygon === null || $polygon === '') {
             return false;
         }
 
@@ -176,8 +172,7 @@ class GeoService
 
         if (self::is_in_polygon($lat, $lng, $original_data)) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
