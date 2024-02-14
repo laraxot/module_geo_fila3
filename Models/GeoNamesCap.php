@@ -24,9 +24,9 @@ class GeoNamesCap extends Model
     use Updater;
 
     /**
-* @var string
-*/
-protected $table = 'geonames_cap';
+     * @var string
+     */
+    protected $table = 'geonames_cap';
     // protected $connection = 'geo';
 
     /*
