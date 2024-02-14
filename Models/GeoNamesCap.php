@@ -23,7 +23,10 @@ class GeoNamesCap extends Model
     // use Searchable;
     use Updater;
 
-    protected string $table = 'geonames_cap';
+    /**
+* @var string
+*/
+protected $table = 'geonames_cap';
     // protected $connection = 'geo';
 
     /*
