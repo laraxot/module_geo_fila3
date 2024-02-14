@@ -17,7 +17,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class GeoJsonCollection extends ResourceCollection
 {
     /**
-     * Undocumented variable
+     * Undocumented variable.
      *
      * @var string
      */
