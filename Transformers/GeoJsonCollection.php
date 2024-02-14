@@ -16,7 +16,12 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
  */
 class GeoJsonCollection extends ResourceCollection
 {
-    public string $collects = GeoJsonResource::class;
+    /**
+     * Undocumented variable
+     *
+     * @var string
+     */
+    public $collects = GeoJsonResource::class;
 
     public function toArray(Request $request): array
     {
