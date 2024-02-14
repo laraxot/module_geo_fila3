@@ -31,7 +31,10 @@ abstract class BaseMorphPivot extends MorphPivot
      */
     public $timestamps = true;
 
-    protected $perPage = 30;
+    /**
+* @var int
+*/
+protected $perPage = 30;
 
     protected $appends = [];
     /**
