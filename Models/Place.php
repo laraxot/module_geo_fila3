@@ -155,7 +155,7 @@ class Place extends BaseModel
     ];
 
     /**
-     * @var array<string>
+     * @var array<int, string>
      */
     protected $appends = ['value'];
 
