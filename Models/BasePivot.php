@@ -27,14 +27,17 @@ abstract class BasePivot extends Pivot
 
     // use Searchable;
 
-    protected string $connection = 'geo'; // this will use the specified database connection
+    /**
+* @var string
+*/
+protected $connection = 'geo'; // this will use the specified database connection
 
-    protected array $appends = [];
+    protected $appends = [];
 
     /**
      * @var array<string, string>
      */
-    protected array $casts = [
+    protected $casts = [
         'id' => 'string', // must be string else primary key of related model will be typed as int
         'created_at' => 'datetime',
         'updated_at' => 'datetime',

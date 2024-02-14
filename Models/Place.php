@@ -136,7 +136,7 @@ class Place extends BaseModel
     /**
      * @var array<string>
      */
-    protected array $fillable = [
+    protected $fillable = [
         'id',
         'post_id', 'post_type',
         'model_id', 'model_type',
@@ -157,7 +157,7 @@ class Place extends BaseModel
     /**
      * @var array<string>
      */
-    protected array $appends = ['value'];
+    protected $appends = ['value'];
 
     // ----- mutators -----
     /*
