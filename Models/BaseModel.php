@@ -25,13 +25,9 @@ abstract class BaseModel extends Model
      * @var bool
      */
     public static $snakeAttributes = true;
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $incrementing = true;
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $timestamps = true;
 
     /**
@@ -50,13 +46,9 @@ abstract class BaseModel extends Model
      * @var array<string, string>
      */
     protected $casts = ['published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $primaryKey = 'id';
-    /**
-     * @var array<int, string>
-     */
+    /** @var  array<int, string> */
     protected $hidden = [
         // 'password'
     ];
