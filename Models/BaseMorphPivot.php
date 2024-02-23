@@ -35,9 +35,7 @@ abstract class BaseMorphPivot extends MorphPivot
     protected $appends = [];
     /** @var string */
     protected $primaryKey = 'id';
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',

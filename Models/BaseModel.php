@@ -38,9 +38,7 @@ abstract class BaseModel extends Model
     // use Searchable;
     // use Cachable;
 
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     protected $fillable = ['id'];
     /**
      * @var array<string, string>

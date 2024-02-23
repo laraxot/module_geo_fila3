@@ -121,9 +121,7 @@ class Place extends BaseModel
 {
     use HasFactory;
 
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     public static array $address_components = [
         'premise', 'locality', 'postal_town',
         'administrative_area_level_3', 'administrative_area_level_2',  'administrative_area_level_1',
@@ -133,9 +131,7 @@ class Place extends BaseModel
         'point_of_interest', 'political', 'campground',
     ];
 
-    /**
-     * @var array<string>
-     */
+    /** @var array<string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',
