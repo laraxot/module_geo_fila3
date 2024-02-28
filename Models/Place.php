@@ -131,7 +131,7 @@ class Place extends BaseModel
         'point_of_interest', 'political', 'campground',
     ];
 
-    /** @var array<string> */
+    /** @var array<int, string> */
     protected $fillable = [
         'id',
         'post_id', 'post_type',
@@ -150,7 +150,7 @@ class Place extends BaseModel
         'latitude', 'longitude', 'formatted_address', 'nearest_street', 'address',
     ];
 
-    /** @var  array<int, string> */
+    /** @var array<int, string> */
     protected $appends = ['value'];
 
     // ----- mutators -----
