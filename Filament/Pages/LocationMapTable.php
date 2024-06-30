@@ -10,7 +10,7 @@ class LocationMapTable extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.location-map';
+    protected static string $view = 'geo::filament.pages.location-map';
 
     protected function getHeaderWidgets(): array
     {
