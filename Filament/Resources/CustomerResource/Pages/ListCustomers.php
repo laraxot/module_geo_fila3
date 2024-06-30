@@ -1,22 +1,19 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Geo\Filament\Resources\CustomerResource\Pages;
 
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Modules\Geo\Filament\Resources\CustomerResource;
+use Filament\Pages\Actions\CreateAction;
+use Filament\Resources\Pages\ListRecords;
 
 class ListCustomers extends ListRecords
 {
     protected static string $resource = CustomerResource::class;
 
-    protected function getHeaderActions(): array
+    protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
-            
+            CreateAction::make(),
         ];
     }
 }

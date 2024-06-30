@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Listeners\GenerateSitemap;
+use Modules\Geo\Listeners\GenerateSitemap;
 
 /* @var \Illuminate\Container\Container $container */
 /* @var \TightenCo\Jigsaw\Events\EventBus $events */

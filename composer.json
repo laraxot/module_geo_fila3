@@ -74,10 +74,10 @@
         }
     ],
     "scripts": {
-        "post-autoload-dump": [
+        "post-autoload-dump_comment": [
             "@php vendor/bin/testbench package:discover --ansi"
         ],
-        "post-update-cmd": [
+        "post-update-cmd_comment": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
         "analyse": "vendor/bin/phpstan analyse",

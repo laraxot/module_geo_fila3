@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Modules\Geo\Filament\Resources\LocationResource\Pages;
 
-use Filament\Actions;
-use Filament\Resources\Pages\ViewRecord;
 use Modules\Geo\Filament\Resources\LocationResource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\ViewRecord;
 
 class ViewLocation extends ViewRecord
 {
@@ -15,7 +13,7 @@ class ViewLocation extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\EditAction::make(),
         ];
     }
 }

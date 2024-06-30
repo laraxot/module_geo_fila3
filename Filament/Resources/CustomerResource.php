@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Filament\Resources;
 
-use Modules\Geo\Models\Customer;
 use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
 use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
 use Filament\Forms\Components\Placeholder;
@@ -15,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Modules\Geo\Filament\Resources\CustomerResource\Pages;
+use Modules\Geo\Models\Customer;
 
 class CustomerResource extends Resource
 {

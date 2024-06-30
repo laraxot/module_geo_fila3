@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Listeners;
+namespace Modules\Geo\Listeners;
 
 use Illuminate\Support\Str;
 use samdark\sitemap\Sitemap;
