@@ -13,7 +13,7 @@ use Filament\Forms\Components\TextInput;
 class MapBlock
 {
     public static function make(
-        string $name = 'map_block',
+        string $name = 'map',
         string $context = 'form',
     ): Block {
         return Block::make($name)
