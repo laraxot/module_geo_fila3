@@ -29,6 +29,7 @@
     },
     "require": {
         "cheesegrits/filament-google-maps": "^3.0",
+        "dotswan/filament-map-picker": "^1.2",
         "webbingbrasil/filament-maps": "^3.0"
     },
     "require_comment": {
