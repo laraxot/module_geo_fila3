@@ -12,7 +12,8 @@
         "laravel": {
             "providers": [
                 "Livewire\\LivewireServiceProvider",
-                "Modules\\Geo\\Providers\\GeoServiceProvider"
+                "Modules\\Geo\\Providers\\GeoServiceProvider",
+                "Modules\\Geo\\Providers\\Filament\\AdminPanelProvider"
 
 
             ],
@@ -27,7 +28,8 @@
         }
     },
     "require": {
-        "cheesegrits/filament-google-maps": "^3.0"
+        "cheesegrits/filament-google-maps": "^3.0",
+        "webbingbrasil/filament-maps": "^3.0"
     },
     "require_comment": {
         "php": "^8.1",
