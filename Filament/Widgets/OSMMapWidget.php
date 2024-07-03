@@ -1,17 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Modules\Geo\Filament\Widgets;
 
 use Filament\Forms;
 use Illuminate\Support\Str;
-use Webbingbrasil\FilamentMaps\Marker;
 use Webbingbrasil\FilamentMaps\Actions;
+use Webbingbrasil\FilamentMaps\Marker;
 use Webbingbrasil\FilamentMaps\Widgets\MapWidget;
 
 class OSMMapWidget extends MapWidget
 {
-    protected int | string | array $columnSpan = 2;
+    protected int|string|array $columnSpan = 2;
 
     protected bool $hasBorder = false;
 
@@ -33,8 +34,8 @@ class OSMMapWidget extends MapWidget
             Actions\FullpageAction::make(),
             Actions\FullscreenAction::make(),
             Actions\Action::make('form')
-            //->icon('filamentmapsicon-o-arrows-pointing-in')
-            //->icon('heroicon-o-plus')
+            // ->icon('filamentmapsicon-o-arrows-pointing-in')
+            // ->icon('heroicon-o-plus')
             ->icon('marker-plus')
             ->form([
                 Forms\Components\TextInput::make('name')
@@ -59,8 +60,8 @@ class OSMMapWidget extends MapWidget
                     )
                     ->centerTo(location: [$data['lat'], $data['lng']], zoom: 13);
             }),
-            //Actions\CenterMapAction::make()->zoom(2),
-            //Actions\CenterMapAction::make()->centerTo([51.505, -0.09])->zoom(13),
+            // Actions\CenterMapAction::make()->zoom(2),
+            // Actions\CenterMapAction::make()->centerTo([51.505, -0.09])->zoom(13),
             Actions\CenterMapAction::make()->centerOnUserPosition()->zoom(13),
             Actions\Action::make('mode')
                 ->icon('filamentmapsicon-o-square-3-stack-3d')

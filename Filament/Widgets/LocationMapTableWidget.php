@@ -1,20 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Widgets;
 
-use Modules\Geo\Models\Location;
 use Cheesegrits\FilamentGoogleMaps\Actions\GoToAction;
 use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
 use Cheesegrits\FilamentGoogleMaps\Filters\MapIsFilter;
 use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
 use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
-use Filament\Forms;
-use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
 use Filament\Actions\Action;
+use Filament\Forms;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Geo\Models\Location;
 
 class LocationMapTableWidget extends MapTableWidget
 {
@@ -82,8 +83,7 @@ class LocationMapTableWidget extends MapTableWidget
                     ->maxLength(255),
                 Forms\Components\TextInput::make('formatted_address')
                     ->maxLength(1024),
-
-            ])
+            ]),
         ];
     }
 
@@ -134,7 +134,6 @@ class LocationMapTableWidget extends MapTableWidget
             GoToAction::make()
                 ->zoom(fn () => 14),
             RadiusAction::make('location'),
-
         ];
     }
 
@@ -155,13 +154,13 @@ class LocationMapTableWidget extends MapTableWidget
                     'lat' => $location->lat ? round(floatval($location->lat), static::$precision) : 0,
                     'lng' => $location->lng ? round(floatval($location->lng), static::$precision) : 0,
                 ],
-                'label'    => $location->formatted_address,
-                'id'       => $location->id,
+                'label' => $location->formatted_address,
+                'id' => $location->id,
                 'icon' => [
-                    //'url' => url('images/dealership.svg'),
+                    // 'url' => url('images/dealership.svg'),
                     'url' => url('images/fire.svg'),
                     'type' => 'svg',
-                    'scale' => [35,35],
+                    'scale' => [35, 35],
                 ],
             ];
         }
@@ -182,12 +181,11 @@ class LocationMapTableWidget extends MapTableWidget
                     TextEntry::make('zip'),
                     TextEntry::make('formatted_address'),
                 ])
-                    ->columns(3)
+                    ->columns(3),
             ])
             ->record(function (array $arguments) {
                 return array_key_exists('model_id', $arguments) ? Location::find($arguments['model_id']) : null;
             })
             ->modalSubmitAction(false);
     }
-
 }

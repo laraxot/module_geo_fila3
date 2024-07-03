@@ -10,8 +10,8 @@ use Webbingbrasil\FilamentMaps\Widgets\MapWidget;
 
 class WebbingbrasilMap extends MapWidget
 {
-    protected int | string | array $columnSpan = 2;
-    
+    protected int|string|array $columnSpan = 2;
+
     protected bool $hasBorder = false;
 
     public function getMarkers(): array

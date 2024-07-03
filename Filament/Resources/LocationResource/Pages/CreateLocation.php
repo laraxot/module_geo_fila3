@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\LocationResource\Pages;
 
-use Modules\Geo\Filament\Resources\LocationResource;
 use Cheesegrits\FilamentGoogleMaps\Concerns\InteractsWithMaps;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Modules\Geo\Filament\Resources\LocationResource;
 
 class CreateLocation extends CreateRecord
 {

@@ -1,9 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources;
 
-use Modules\Geo\Filament\Resources\LocationResource\Pages;
-use Modules\Geo\Models\Location;
 use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
 use Cheesegrits\FilamentGoogleMaps\Fields\Geocomplete;
 use Cheesegrits\FilamentGoogleMaps\Fields\Map;
@@ -14,8 +14,10 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
+use Modules\Geo\Filament\Resources\LocationResource\Pages;
+use Modules\Geo\Models\Location;
 
-//use Modules\Geo\Filament\Resources\LocationResource\RelationManagers;
+// use Modules\Geo\Filament\Resources\LocationResource\RelationManagers;
 
 class LocationResource extends Resource
 {
@@ -32,8 +34,8 @@ class LocationResource extends Resource
                 Forms\Components\TextInput::make('lat')
                     ->afterStateUpdated(function ($state, callable $get, callable $set) {
                         $set('location', [
-                            'lat' => floatVal($state),
-                            'lng' => floatVal($get('lng')),
+                            'lat' => floatval($state),
+                            'lng' => floatval($get('lng')),
                         ]);
                     })
                     ->lazy()
@@ -42,7 +44,7 @@ class LocationResource extends Resource
                     ->afterStateUpdated(function ($state, callable $get, callable $set) {
                         $set('location', [
                             'lat' => floatval($get('lat')),
-                            'lng' => floatVal($state),
+                            'lng' => floatval($state),
                         ]);
                     })
                     ->lazy()
@@ -61,8 +63,8 @@ class LocationResource extends Resource
                 //                	            Geocomplete::make('formatted_address')
                 //                //                    ->types(['airport'])
                 //                //                    ->placeField('name')
-                ////                		            ->isLocation()
-                ////                		            ->updateLatLng()
+                // //                		            ->isLocation()
+                // //                		            ->updateLatLng()
                 //                		            ->reverseGeocode([
                 //                			            'city'   => '%L',
                 //                			            'zip'    => '%z',
@@ -93,9 +95,9 @@ class LocationResource extends Resource
                     ->autocomplete('formatted_address')
                     ->autocompleteReverse()
                     ->reverseGeocode([
-                        'city'   => '%L',
-                        'zip'    => '%z',
-                        'state'  => '%A1',
+                        'city' => '%L',
+                        'zip' => '%z',
+                        'state' => '%A1',
                         'street' => '%n %S',
                     ])
                     ->geolocate()
@@ -153,7 +155,6 @@ class LocationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 
@@ -168,10 +169,10 @@ class LocationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListLocations::route('/'),
+            'index' => Pages\ListLocations::route('/'),
             'create' => Pages\CreateLocation::route('/create'),
-            'view'   => Pages\ViewLocation::route('/{record}'),
-            'edit'   => Pages\EditLocation::route('/{record}/edit'),
+            'view' => Pages\ViewLocation::route('/{record}'),
+            'edit' => Pages\EditLocation::route('/{record}/edit'),
         ];
     }
 }

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\LocationResource\Pages;
 
-use Modules\Geo\Filament\Resources\LocationResource;
 use Cheesegrits\FilamentGoogleMaps\Concerns\InteractsWithMaps;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Modules\Geo\Filament\Resources\LocationResource;
 
 class EditLocation extends EditRecord
 {
@@ -20,6 +22,7 @@ class EditLocation extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
@@ -28,8 +31,7 @@ class EditLocation extends EditRecord
     protected function getHeaderWidgets(): array
     {
         return [
-//            LocationResource\Widgets\LocationMapTableWidget::class,
+            //            LocationResource\Widgets\LocationMapTableWidget::class,
         ];
     }
-
 }

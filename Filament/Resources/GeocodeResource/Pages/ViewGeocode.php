@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\GeocodeResource\Pages;
 
-use Modules\Geo\Filament\Resources\GeocodeResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
+use Modules\Geo\Filament\Resources\GeocodeResource;
 
 class ViewGeocode extends ViewRecord
 {

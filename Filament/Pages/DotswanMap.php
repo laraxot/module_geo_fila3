@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Filament\Pages;
 
+use Dotswan\MapPicker\Fields\Map;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Set;
 use Filament\Pages\Page;
-use Dotswan\MapPicker\Fields\Map;
-use Modules\Geo\Filament\Widgets;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Concerns\InteractsWithForms;
 
 class DotswanMap extends Page implements HasForms
 {
@@ -24,7 +23,6 @@ class DotswanMap extends Page implements HasForms
     protected function getHeaderWidgets(): array
     {
         return [
-
         ];
     }
 
@@ -52,23 +50,23 @@ class DotswanMap extends Page implements HasForms
                 })
                 ->extraStyles([
                     'min-height: 80vh',
-                    'border-radius: 50px'
+                    'border-radius: 50px',
                 ])
                 ->liveLocation()
                 ->showMarker()
-                ->markerColor("#22c55eff")
+                ->markerColor('#22c55eff')
                 ->showFullscreenControl()
                 ->showZoomControl()
                 ->draggable()
-                ->tilesUrl("https://tile.openstreetmap.de/{z}/{x}/{y}.png")
+                ->tilesUrl('https://tile.openstreetmap.de/{z}/{x}/{y}.png')
                 // ->zoom(15)
                 // ->detectRetina()
                 ->showMyLocationButton()
-                ->extraTileControl([])
-                // ->extraControl([
-                //     'zoomDelta'           => 1,
-                //     'zoomSnap'            => 2,
-                // ])
+                ->extraTileControl([]),
+            // ->extraControl([
+            //     'zoomDelta'           => 1,
+            //     'zoomSnap'            => 2,
+            // ])
         ];
     }
 }

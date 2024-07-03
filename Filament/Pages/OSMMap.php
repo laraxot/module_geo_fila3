@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Geo\Filament\Pages;
 
 use Filament\Pages\Page;
-
 use Modules\Geo\Filament\Widgets;
 
 class OSMMap extends Page
@@ -18,7 +17,7 @@ class OSMMap extends Page
     {
         return [
             // Widgets\LocationMapTableWidget::class,
-            //Widgets\LocationMapWidget::class,
+            // Widgets\LocationMapWidget::class,
             Widgets\OSMMapWidget::class,
         ];
     }

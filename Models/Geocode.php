@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,12 +12,11 @@ class Geocode extends Model
     use HasFactory;
 
     /**
-     * REPLACE THE FOLLOWING ARRAYS IN YOUR MODEL
+     * REPLACE THE FOLLOWING ARRAYS IN YOUR MODEL.
      *
      * Replace your existing $fillable and/or $guarded and/or $appends arrays with these - we already merged
      * any existing attributes from your model, and only included the one(s) that need changing.
      */
-
     protected $fillable = [
         'name',
         'lat',
@@ -40,14 +41,12 @@ class Geocode extends Model
      * Used by the Filament Google Maps package.
      *
      * Requires the 'location' attribute be included in this model's $fillable array.
-     *
-     * @return array
      */
     public function getLocationAttribute(): array
     {
         return [
-            "lat" => (float)$this->lat,
-            "lng" => (float)$this->lng,
+            'lat' => (float) $this->lat,
+            'lng' => (float) $this->lng,
         ];
     }
 
@@ -60,20 +59,16 @@ class Geocode extends Model
      * Requires the 'location' attribute be included in this model's $fillable array.
      *
      * @param ?array $location
-     * @return void
      */
     public function setLocationAttribute(array|string|null $location): void
     {
-        if (is_null($location))
-        {
+        if (is_null($location)) {
             $foo = 2;
         }
-        if (is_string($location))
-        {
+        if (is_string($location)) {
             $foo = 1;
         }
-        if (is_array($location))
-        {
+        if (is_array($location)) {
             $this->attributes['lat'] = $location['lat'];
             $this->attributes['lng'] = $location['lng'];
             unset($this->attributes['location']);
@@ -81,7 +76,7 @@ class Geocode extends Model
     }
 
     /**
-     * Get the lat and lng attribute/field names used on this table
+     * Get the lat and lng attribute/field names used on this table.
      *
      * Used by the Filament Google Maps package.
      *
@@ -96,15 +91,12 @@ class Geocode extends Model
     }
 
     /**
-     * Get the name of the computed location attribute
+     * Get the name of the computed location attribute.
      *
      * Used by the Filament Google Maps package.
-     *
-     * @return string
      */
     public static function getComputedLocation(): string
     {
         return 'location';
     }
-
 }

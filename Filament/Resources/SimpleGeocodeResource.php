@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources;
 
-use Modules\Geo\Filament\Resources\SimpleGeocodeResource\Pages;
-use Modules\Geo\Filament\Resources\SimpleGeocodeResource\RelationManagers;
-use Modules\Geo\Models\Geocode;
 use Cheesegrits\FilamentGoogleMaps\Columns\MapColumn;
 use Cheesegrits\FilamentGoogleMaps\Fields\Geocomplete;
 use Filament\Forms;
@@ -12,8 +11,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Geo\Filament\Resources\SimpleGeocodeResource\Pages;
+use Modules\Geo\Models\Geocode;
 
 class SimpleGeocodeResource extends Resource
 {
@@ -45,9 +44,9 @@ class SimpleGeocodeResource extends Resource
                     ->isLocation()
                     ->updateLatLng()
                     ->reverseGeocode([
-                        'city'   => '%L',
-                        'zip'    => '%z',
-                        'state'  => '%A1',
+                        'city' => '%L',
+                        'zip' => '%z',
+                        'state' => '%A1',
                         //                        'street' => '%n z%S',
                     ])
                     ->reverseGeocodeUsing(function (callable $set, array $results) {
@@ -68,7 +67,6 @@ class SimpleGeocodeResource extends Resource
                 MapColumn::make('location'),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

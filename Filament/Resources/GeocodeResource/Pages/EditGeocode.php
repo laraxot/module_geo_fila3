@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\GeocodeResource\Pages;
 
-use Modules\Geo\Filament\Resources\GeocodeResource;
 use Cheesegrits\FilamentGoogleMaps\Concerns\InteractsWithMaps;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Modules\Geo\Filament\Resources\GeocodeResource;
 
 class EditGeocode extends EditRecord
 {

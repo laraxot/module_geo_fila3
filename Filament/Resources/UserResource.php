@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources;
 
-use Modules\Geo\Filament\Resources\UserResource\Pages;
-use Modules\Geo\Filament\Resources\UserResource\RelationManagers;
-use Modules\Geo\Models\User;
 use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Geo\Filament\Resources\UserResource\Pages;
+use Modules\Geo\Filament\Resources\UserResource\RelationManagers;
+use Modules\Geo\Models\User;
 
 class UserResource extends Resource
 {
@@ -64,7 +64,6 @@ class UserResource extends Resource
                 ]),
             ])
             ->emptyStateActions([
-
                 Tables\Actions\CreateAction::make(),
             ]);
     }

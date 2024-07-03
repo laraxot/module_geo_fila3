@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources;
 
-use Modules\Geo\Filament\Resources\GeocodeResource\Pages;
-use Modules\Geo\Filament\Resources\GeocodeResource\RelationManagers;
-use Modules\Geo\Models\Geocode;
 use Cheesegrits\FilamentGoogleMaps\Actions\StaticMapAction;
 use Cheesegrits\FilamentGoogleMaps\Actions\WidgetMapAction;
 use Cheesegrits\FilamentGoogleMaps\Columns\MapColumn;
@@ -18,6 +17,8 @@ use Filament\Tables;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Geo\Filament\Resources\GeocodeResource\Pages;
+use Modules\Geo\Models\Geocode;
 
 class GeocodeResource extends Resource
 {
@@ -31,10 +32,10 @@ class GeocodeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->maxLength(256),
-//                Forms\Components\TextInput::make('lat')
-//                    ->maxLength(32),
-//                Forms\Components\TextInput::make('lng')
-//                    ->maxLength(32),
+                //                Forms\Components\TextInput::make('lat')
+                //                    ->maxLength(32),
+                //                Forms\Components\TextInput::make('lng')
+                //                    ->maxLength(32),
                 Forms\Components\TextInput::make('street')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('city')
@@ -51,8 +52,8 @@ class GeocodeResource extends Resource
                     ->isLocation()
 //                    ->updateLatLng()
                     ->reverseGeocode([
-                        'city'  => '%L',
-                        'zip'   => '%z',
+                        'city' => '%L',
+                        'zip' => '%z',
                         'state' => '%A1',
                         //                        'street' => '%n z%S',
                     ])
@@ -87,9 +88,8 @@ class GeocodeResource extends Resource
 
                         return $markers;
                     })
-                    ->columnSpan(2)
+                    ->columnSpan(2),
             ]);
-
     }
 
     public static function table(Table $table): Table
@@ -120,13 +120,13 @@ class GeocodeResource extends Resource
                 MapColumn::make('location'),
             ])
             ->filters([
-                    Tables\Filters\TernaryFilter::make('processed'),
-                    RadiusFilter::make('radius')
-                        ->latitude('lat')
-                        ->longitude('lng')
-                        ->selectUnit()
-                        ->section('Radius Search'),
-                ]
+                Tables\Filters\TernaryFilter::make('processed'),
+                RadiusFilter::make('radius')
+                    ->latitude('lat')
+                    ->longitude('lng')
+                    ->selectUnit()
+                    ->section('Radius Search'),
+            ]
             )
             ->filtersLayout(FiltersLayout::Dropdown)
             ->actions([
@@ -138,23 +138,21 @@ class GeocodeResource extends Resource
                 StaticMapAction::make(),
                 WidgetMapAction::make(),
             ]);
-
     }
 
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListGeocodes::route('/'),
+            'index' => Pages\ListGeocodes::route('/'),
             'create' => Pages\CreateGeocode::route('/create'),
-            'view'   => Pages\ViewGeocode::route('/{record}'),
-            'edit'   => Pages\EditGeocode::route('/{record}/edit'),
+            'view' => Pages\ViewGeocode::route('/{record}'),
+            'edit' => Pages\EditGeocode::route('/{record}/edit'),
         ];
     }
 }

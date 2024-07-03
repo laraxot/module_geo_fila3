@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Filament\Widgets;
 
-use Modules\Geo\Models\Location;
 use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
 use Filament\Actions\Action;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Modules\Geo\Models\Location;
 
 class LocationMapWidget extends MapWidget
 {

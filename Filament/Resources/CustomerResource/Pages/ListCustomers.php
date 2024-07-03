@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\CustomerResource\Pages;
 
-use Modules\Geo\Filament\Resources\CustomerResource;
 use Filament\Pages\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Modules\Geo\Filament\Resources\CustomerResource;
 
 class ListCustomers extends ListRecords
 {

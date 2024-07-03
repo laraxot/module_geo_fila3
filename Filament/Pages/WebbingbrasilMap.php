@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Pages;
 
 use Filament\Pages\Page;
@@ -14,7 +16,7 @@ class WebbingbrasilMap extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            //LocationMapTableWidget::class,
+            // LocationMapTableWidget::class,
             Map::class,
         ];
     }

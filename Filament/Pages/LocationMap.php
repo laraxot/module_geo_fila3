@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Pages;
 
+use Filament\Pages\Page;
 use Modules\Geo\Filament\Widgets\LocationMapTableWidget;
 use Modules\Geo\Filament\Widgets\LocationMapWidget;
-use Filament\Pages\Page;
 
 class LocationMap extends Page
 {
@@ -15,7 +17,7 @@ class LocationMap extends Page
     protected function getHeaderWidgets(): array
     {
         return [
-            //LocationMapTableWidget::class,
+            // LocationMapTableWidget::class,
             LocationMapWidget::class,
         ];
     }
