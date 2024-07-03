@@ -7,6 +7,7 @@ namespace Modules\Geo\Filament\Blocks;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Modules\Xot\Actions\View\GetViewsSiblingsAndSelfAction;
 
 // use Modules\Blog\Models\Article;
 
@@ -16,6 +17,9 @@ class MapBlock
         string $name = 'map',
         string $context = 'form',
     ): Block {
+        $view = 'geo::components.blocks.map.location-map-table';
+        $views = app(GetViewsSiblingsAndSelfAction::class)->execute($view);
+
         return Block::make($name)
             ->schema([
                 /*
@@ -26,6 +30,11 @@ class MapBlock
                 */
                 TextInput::make('text')
                     ->label('Link text (optional)'),
+                Select::make('_tpl')
+                    ->label('layout')
+                    ->options($views)
+                    ->default('v1')
+                    ->required(),
             ])
             ->label('Map')
             ->columns('form' === $context ? 2 : 1);
