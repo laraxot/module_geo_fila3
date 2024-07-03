@@ -65,7 +65,7 @@ class LocationMapTableWidget extends MapTableWidget
     protected function getFormSchema(): array
     {
         return [
-            Forms\Components\Card::make()->schema([
+            Forms\Components\Section::make()->schema([
                 Forms\Components\TextInput::make('name')
                     ->maxLength(256),
                 Forms\Components\TextInput::make('lat')
