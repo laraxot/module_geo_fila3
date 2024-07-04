@@ -2,19 +2,20 @@
 
 namespace Modules\Geo\Filament\Widgets;
 
-use Modules\Geo\Models\Location;
-use Cheesegrits\FilamentGoogleMaps\Actions\GoToAction;
-use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
-use Cheesegrits\FilamentGoogleMaps\Filters\MapIsFilter;
-use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
 use Filament\Forms;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
 use Filament\Actions\Action;
+use Modules\Geo\Models\Location;
+use Filament\Tables\Actions\CreateAction;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
+use Cheesegrits\FilamentGoogleMaps\Actions\GoToAction;
+use Cheesegrits\FilamentGoogleMaps\Filters\MapIsFilter;
+use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
+use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
+use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
 
 class LocationMapTableWidget extends MapTableWidget
 {
@@ -122,6 +123,14 @@ class LocationMapTableWidget extends MapTableWidget
     protected function getTableRecordAction(): ?string
     {
         return 'edit';
+    }
+
+    protected function getTableHeaderActions(): array
+    {
+        return [
+            CreateAction::make()
+            ->form($this->getFormSchema()),
+        ];
     }
 
     protected function getTableActions(): array
