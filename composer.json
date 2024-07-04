@@ -12,7 +12,8 @@
         "laravel": {
             "providers": [
                 "Livewire\\LivewireServiceProvider",
-                "Modules\\Geo\\Providers\\GeoServiceProvider"
+                "Modules\\Geo\\Providers\\GeoServiceProvider",
+                "Modules\\Geo\\Providers\\Filament\\AdminPanelProvider"
 
 
             ],
@@ -25,6 +26,11 @@
         "psr-4": {
             "Modules\\Geo\\": ""
         }
+    },
+    "require": {
+        "cheesegrits/filament-google-maps": "^3.0",
+        "dotswan/filament-map-picker": "^1.2",
+        "webbingbrasil/filament-maps": "^3.0"
     },
     "require_comment": {
         "php": "^8.1",
@@ -71,10 +77,10 @@
         }
     ],
     "scripts": {
-        "post-autoload-dump": [
+        "post-autoload-dump_comment": [
             "@php vendor/bin/testbench package:discover --ansi"
         ],
-        "post-update-cmd": [
+        "post-update-cmd_comment": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate"
         ],
         "analyse": "vendor/bin/phpstan analyse",
