@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Filament\Resources\SimpleGeocodeResource\Pages;
 
-use Modules\Geo\Filament\Resources\SimpleGeocodeResource;
 use Cheesegrits\FilamentGoogleMaps\Concerns\InteractsWithMaps;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
+use Modules\Geo\Filament\Resources\SimpleGeocodeResource;
 
 class ManageSimpleGeocodes extends ManageRecords
 {
