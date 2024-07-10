@@ -21,7 +21,6 @@ use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
 use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
 use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
 
-
 class LocationMapTableWidget extends MapTableWidget
 {
     protected static ?string $heading = 'Location Map';
