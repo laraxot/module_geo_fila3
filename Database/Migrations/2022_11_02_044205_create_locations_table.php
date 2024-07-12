@@ -9,7 +9,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 return new class() extends XotBaseMigration {
     protected ?string $model_class = Location::class;
 
-    public function up()
+    public function up(): void
     {
         // -- CREATE --
         $this->tableCreate(
