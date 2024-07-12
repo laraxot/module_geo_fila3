@@ -13,7 +13,7 @@ use Webbingbrasil\FilamentMaps\Widgets\MapWidget;
 class OSMMapWidget extends MapWidget
 {
     protected int|string|array $columnSpan = 2;
-    //protected static string $view = 'geo::filament.widgets.osm-map';
+    // protected static string $view = 'geo::filament.widgets.osm-map';
 
     protected bool $hasBorder = false;
 
