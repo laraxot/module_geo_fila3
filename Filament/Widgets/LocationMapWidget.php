@@ -56,8 +56,8 @@ class LocationMapWidget extends MapWidget
              */
             $data[] = [
                 'location' => [
-                    'lat' => $location->lat ? round(floatval($location->lat), static::$precision) : 0,
-                    'lng' => $location->lng ? round(floatval($location->lng), static::$precision) : 0,
+                    'lat' => $location->lat ? round(floatval($location->lat), static::$precision ?? 18) : 0,
+                    'lng' => $location->lng ? round(floatval($location->lng), static::$precision ?? 18) : 0,
                 ],
 
                 'label' => $location->lat.','.$location->lng,

@@ -7,12 +7,12 @@ namespace Modules\Geo\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property array $location
+ * 
  *
+ * @property array $location
  * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Location query()
- *
  * @property int                             $id
  * @property string|null                     $model_type
  * @property string|null                     $model_id
@@ -32,7 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null                     $created_by
  * @property string|null                     $deleted_at
  * @property string|null                     $deleted_by
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedBy($value)
@@ -52,7 +51,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Location whereZip($value)
- *
  * @mixin \Eloquent
  */
 class Location extends BaseModel
