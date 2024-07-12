@@ -7,6 +7,15 @@ namespace Modules\Geo\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * 
+ *
+ * @property array $location
+ * @method static \Illuminate\Database\Eloquent\Builder|Geocode newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Geocode newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Geocode query()
+ * @mixin \Eloquent
+ */
 class Geocode extends Model
 {
     use HasFactory;
