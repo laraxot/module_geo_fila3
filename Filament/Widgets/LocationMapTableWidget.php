@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Filament\Widgets;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Actions\Action;
-use Modules\Geo\Models\Location;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Actions\CreateAction;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\TextEntry;
-use Cheesegrits\FilamentGoogleMaps\Widgets\MapWidget;
 use Cheesegrits\FilamentGoogleMaps\Actions\GoToAction;
-use Cheesegrits\FilamentGoogleMaps\Filters\MapIsFilter;
 use Cheesegrits\FilamentGoogleMaps\Actions\RadiusAction;
+use Cheesegrits\FilamentGoogleMaps\Filters\MapIsFilter;
 use Cheesegrits\FilamentGoogleMaps\Filters\RadiusFilter;
 use Cheesegrits\FilamentGoogleMaps\Widgets\MapTableWidget;
+use Filament\Actions\Action;
+use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Tables;
+use Filament\Tables\Actions\CreateAction;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Geo\Models\Location;
 
 class LocationMapTableWidget extends MapTableWidget
 {
@@ -71,21 +70,21 @@ class LocationMapTableWidget extends MapTableWidget
     {
         return [
             Forms\Components\Section::make()->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->maxLength(256),
-                Forms\Components\TextInput::make('lat')
+                TextInput::make('lat')
                     ->maxLength(32),
-                Forms\Components\TextInput::make('lng')
+                TextInput::make('lng')
                     ->maxLength(32),
-                Forms\Components\TextInput::make('street')
+                TextInput::make('street')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('city')
+                TextInput::make('city')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('state')
+                TextInput::make('state')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('zip')
+                TextInput::make('zip')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('formatted_address')
+                TextInput::make('formatted_address')
                     ->maxLength(1024),
             ]),
         ];
@@ -99,17 +98,17 @@ class LocationMapTableWidget extends MapTableWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('name')
+            TextColumn::make('name')
                 ->searchable(),
-            Tables\Columns\TextColumn::make('street')
+            TextColumn::make('street')
                 ->searchable(),
-            Tables\Columns\TextColumn::make('city')
+            TextColumn::make('city')
                 ->searchable()
                 ->sortable(),
-            Tables\Columns\TextColumn::make('state')
+            TextColumn::make('state')
                 ->searchable()
                 ->sortable(),
-            Tables\Columns\TextColumn::make('zip'),
+            TextColumn::make('zip'),
         ];
     }
 
