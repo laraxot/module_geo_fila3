@@ -4,18 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Geo\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Xot\Datas\XotData;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
+<<<<<<< HEAD:Models/Customer.old
  * @property Location|null $location
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Customer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Customer query()
  *
+=======
+ * 
+ *
+ * @property-read \Modules\Geo\Models\Location|null $location
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Customer query()
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $users
+ * @property-read int|null $users_count
+>>>>>>> origin/master:Models/Customer.php
  * @mixin \Eloquent
  */
 class Customer extends Model
@@ -35,7 +47,10 @@ class Customer extends Model
     public function users(): BelongsToMany
     {
         $user_class = XotData::make()->getUserClass();
+<<<<<<< HEAD:Models/Customer.old
 
+=======
+>>>>>>> origin/master:Models/Customer.php
         return $this->belongsToMany($user_class);
     }
 }
