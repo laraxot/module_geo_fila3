@@ -11,7 +11,7 @@ class SettingPage extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'ai::filament.pages.setting';
+    protected static string $view = 'geo::filament.pages.setting';
 
     public function getHeaderWidgets(): array
     {
