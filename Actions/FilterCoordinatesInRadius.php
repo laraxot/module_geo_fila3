@@ -9,17 +9,17 @@ use Modules\Ticket\Models\GeoTicket;
 class FilterCoordinatesInRadius
 {
     // filtra Coordinate In Raggio
-    public function execute($latPartenza, $lonPartenza, $coordinateArray, $raggio)
+    public function execute(float $latPartenza, float $lonPartenza, array $coordinateArray, int $raggio)
     {
         $coordinateInRaggio = [];
 
         foreach ($coordinateArray as $coordinate) {
-            $lat = $coordinate['lat'];
-            $lon = $coordinate['lon'];
-    
-            $distanza = calcolaDistanzaGeografica($latPartenza, $lonPartenza, $lat, $lon);
-    
-            if ($distanza <= $raggio) {
+            $lat = $coordinate['latitude'];
+            $lon = $coordinate['longitude'];
+
+            $distanza = $this->calcolaDistanzaGeografica($latPartenza, $lonPartenza, $lat, $lon);
+ 
+            if ($distanza >= $raggio) {
                 $coordinateInRaggio[] = $coordinate;
             }
         }
@@ -36,8 +36,8 @@ class FilterCoordinatesInRadius
         // Conversione delle latitudini e longitudini da gradi a radianti
         $lat1 = deg2rad($lat1);
         $lon1 = deg2rad($lon1);
-        $lat2 = deg2rad($lat2);
-        $lon2 = deg2rad($lon2);
+        $lat2 = deg2rad((float) $lat2);
+        $lon2 = deg2rad((float) $lon2);
     
         // Differenza tra le coordinate
         $dLat = $lat2 - $lat1;
