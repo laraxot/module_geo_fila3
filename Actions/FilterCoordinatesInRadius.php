@@ -9,7 +9,7 @@ use Modules\Ticket\Models\GeoTicket;
 class FilterCoordinatesInRadius
 {
     // filtra Coordinate In Raggio
-    public function execute(float $latPartenza, float $lonPartenza, array $coordinateArray, int $raggio)
+    public function execute(float $latPartenza, float $lonPartenza, array $coordinateArray, int $raggio): array
     {
         $coordinateInRaggio = [];
 
@@ -23,12 +23,12 @@ class FilterCoordinatesInRadius
                 $coordinateInRaggio[] = $coordinate;
             }
         }
-    
+
         return $coordinateInRaggio;
     }
 
 
-    function calcolaDistanzaGeografica($lat1, $lon1, $lat2, $lon2)
+    function calcolaDistanzaGeografica(float $lat1, float $lon1, string $lat2, string $lon2): float
     {
         // Raggio della Terra in chilometri
         $raggioTerra = 6371;
@@ -49,7 +49,7 @@ class FilterCoordinatesInRadius
     
         // Calcolo della distanza
         $distanza = $raggioTerra * $c;
-    
+
         return $distanza; // Distanza in chilometri
     }
 
