@@ -16,6 +16,9 @@ use Modules\Xot\Traits\Updater;
  * @method static Builder|GeoNamesCap newQuery()
  * @method static Builder|GeoNamesCap query()
  *
+ * @property-read \Modules\Fixcity\Models\Profile|null $creator
+ * @property-read \Modules\Fixcity\Models\Profile|null $updater
+ *
  * @mixin \Eloquent
  */
 class GeoNamesCap extends Model

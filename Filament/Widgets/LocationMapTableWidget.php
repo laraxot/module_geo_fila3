@@ -131,7 +131,7 @@ class LocationMapTableWidget extends MapTableWidget
     {
         return [
             CreateAction::make()
-            ->form($this->getFormSchema()),
+                ->form($this->getFormSchema()),
         ];
     }
 

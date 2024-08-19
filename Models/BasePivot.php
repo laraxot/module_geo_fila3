@@ -23,6 +23,7 @@ abstract class BasePivot extends Pivot
      * @var bool
      */
     public static $snakeAttributes = true;
+
     /** @var bool */
     public $incrementing = true;
 
