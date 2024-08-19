@@ -3,8 +3,7 @@
     "alias": "geo",
     "description": "",
     "keywords": [],
-    "active": 1,
-    "order": 0,
+    "priority": 0,
     "providers": [
         "Modules\\Geo\\Providers\\GeoServiceProvider",
         "Modules\\Geo\\Providers\\Filament\\AdminPanelProvider"
