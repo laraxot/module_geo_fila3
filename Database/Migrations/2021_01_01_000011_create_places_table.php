@@ -11,11 +11,10 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Geo\Models\Place as MyModel;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-/**
+/*
  * Class CreatePlacesTable.
  */
-class CreatePlacesTable extends XotBaseMigration
-{
+return new class() extends XotBaseMigration {
     /**
      * db up.
      */
@@ -65,4 +64,4 @@ class CreatePlacesTable extends XotBaseMigration
             }
         });
     }
-}
+};
