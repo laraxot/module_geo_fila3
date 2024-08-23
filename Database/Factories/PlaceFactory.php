@@ -27,7 +27,7 @@ class PlaceFactory extends Factory
         return [
             // 'title' => $this->faker->sentence,
             // 'description' => $this->faker->paragraph,
-            // 'user_id' => factory(User::class)->create()->id,
+            // 'user_id' => factory(\Modules\Xot\Datas\XotData::make()->getUserClass())->create()->id,
 
             // 'latitude' => $this->faker->latitude(),
             /*
