@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Geo\Rules;
 
-use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Modules\Geo\Actions\FilterCoordinatesInRadius as CoordinatesFilter;
 use Modules\Ticket\Models\Ticket;
@@ -13,7 +14,7 @@ class FilterCoordinatesInRadius implements ValidationRule
     /**
      * Run the validation rule.
      */
-    public function validate(string $attribute, mixed $value, Closure $fail): void
+    public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
         Assert::isArray($value);
         $coordinatesArray = Ticket::select('id', 'latitude', 'longitude')->get()->toArray();
